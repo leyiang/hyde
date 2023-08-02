@@ -23,11 +23,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*.youtube.com/watch?*", "https://*.youtube.com/watch?*"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["src/hide.js", "src/show.js"]
     }
   ],
   "permissions": [
-    "activeTab"
-  ]
+    "activeTab",
+    "storage"
+  ],
+  "options_page": "src/options/options.html"
 }
