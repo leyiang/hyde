@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "hyde — hide the YouTube video player controls",
+  "name": "hyde - hide video controls on any site",
   "version": "1.1",
-  "description": "Press Ctrl+M to hide or show the YouTube video player controls.",
+  "description": "Press Ctrl+Q to hide or show the YouTube video player controls.",
   "icons": { 
     "16": "img/icon16.png",
     "32": "img/icon32.png",
@@ -16,7 +16,7 @@
   "commands": {
     "hide": {
       "suggested_key": {
-        "default": "Ctrl+M"
+        "default": "Ctrl+Q"
       },
       "description": "hide/show controls"
     }
@@ -24,7 +24,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["src/hide.js", "src/show.js"]
+      "js": ["src/hide.js"]
     }
   ],
   "permissions": [
