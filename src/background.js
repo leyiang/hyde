@@ -16,28 +16,9 @@ chrome.commands.onCommand.addListener(function(command) {
         // if the user is watching a YouTube video...
         if ( url.hostname in items.hydeRules ) {
           // console.log("IN!!!!");
-
-          // and if the controls are not already hidden...
-          if (controlsHidden === false) {
-            // run the 'hide.js' script.
             chrome.tabs.executeScript({
               file: 'src/hide.js'
             });
-
-            // change controls to hidden
-            controlsHidden = true;
-          }
-
-          // if the controls are already hidden...
-          else {
-            // run the 'show.js' script.
-            chrome.tabs.executeScript({
-              file: 'src/show.js'
-            });
-
-            // change controls to not hidden
-            controlsHidden = false;
-          }
         }
       });
 
