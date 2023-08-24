@@ -21,12 +21,6 @@
       "description": "hide/show controls"
     }
   },
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["src/hide.js"]
-    }
-  ],
   "permissions": [
     "activeTab",
     "storage"
