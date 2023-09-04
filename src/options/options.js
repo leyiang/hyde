@@ -38,6 +38,12 @@ function createRuleDOM(config) {
 chrome.storage.sync.get(["hydeRules"], items => {
     hydeRules = items.hydeRules;
 
+    if( ! hydeRules ) {
+        hydeRules = JSON.parse(`{"www.aliyundrive.com":{"iframe":false,"selectors":[".video-player--k1J-M"]},"www.bilibili.com":{"iframe":false,"selectors":[".bpx-player-control-wrap",".bpx-player-control-mask",".bpx-player-control-entity",".bpx-player-progress-wrap",".bpx-player-progress",".bpx-player-state-wrap",".bpx-player-top-wrap"]},"www.pangzitv.com":{"iframe":true,"selectors":[".vjs-background-bar",".vjs-control-bar",".div-over"]},"www.youtube.com":{"iframe":false,"selectors":[".ytp-chrome-top",".ytp-chrome-controls",".ytp-gradient-top",".ytp-gradient-bottom",".ytp-progress-bar",".ytp-progress-bar-container",".player-controls",".ytd-reel-player-overlay-renderer"]}}`);
+        updateRules();
+        return;
+    }
+
     Object.keys(hydeRules).forEach( url => {
         const copy = JSON.parse( JSON.stringify( hydeRules[url] ));
         copy.url = url;

@@ -1,7 +1,6 @@
 // establish whether the controls are hidden or not
 var controlsHidden = false;
 
-console.log(666);
 chrome.commands.onCommand.addListener(function(command) {
   // if the user invokes the "hide" command...
   if (command === "hide") {
